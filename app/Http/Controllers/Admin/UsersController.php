@@ -17,6 +17,10 @@ class UsersController extends Controller
         return view('admin.users', ['users' => $users]);
     }
 
+    public function getUser(Request $request, $id){
+        dd($id);
+    }
+
     public function store(Request $request){
         $request->validate([
             'name' => 'required|min:6',

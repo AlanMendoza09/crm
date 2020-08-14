@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::middleware('auth', 'isAdmin')-> namespace('admin')->group(function() {
     Route::get('admin/users', "UsersController@index")->name('admin.users');
+    Route::get('admin/user/{id}', 'UsersController@getUser');
+
     Route::post('admin/users/store', 'UsersController@store')->name('admin.user.store');
 });
 

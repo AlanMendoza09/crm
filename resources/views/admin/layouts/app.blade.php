@@ -77,5 +77,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('admin.layouts.scripts.scripts')
 </body>
 </html>

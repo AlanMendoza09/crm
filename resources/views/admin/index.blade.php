@@ -71,10 +71,10 @@
                                 <div class="col-sm-4">
                                     Mr. Prospect
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     June 5th, 2020
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     Value: $54, 789.90 <span class="float-right btn btn-sm btn-success">Details</span>
                                 </div>
                             </div>

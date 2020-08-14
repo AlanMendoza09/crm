@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label for="password">Enter New User Temporary Password</label>
-        <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="passsword">
+        <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password">
         @if($errors->has('password'))
             <div class="invalid-feedback">
                 {{ $errors->first('password') }}
@@ -42,9 +42,9 @@
     <div class="form-group">
         <label for="confirm_password">Confirm New user Temporary Password</label>
         <input type="password" class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}" name="confirm_password">
-        @if($errors->has('password_confirm'))
+        @if($errors->has('confirm_password'))
             <div class="invalid-feedback">
-                {{ $errors->first('password_confirm') }}
+                {{ $errors->first('confirm_password') }}
             </div>
         @endif
     </div>
