@@ -3,12 +3,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-2">
-        @component('admin.layouts.menus.sidebar')
-
-        @endcomponent
-    </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
         {{--Leaderboard and HUD--}}
         <div class="row">
             <div class="col-sm-3">

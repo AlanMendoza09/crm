@@ -18,7 +18,9 @@ class UsersController extends Controller
     }
 
     public function getUser(Request $request, $id){
-        dd($id);
+        $user = User::findOrfail($id);
+
+        return view('admin.user', ['user' => $user]);
     }
 
     public function store(Request $request){
@@ -41,6 +43,30 @@ class UsersController extends Controller
         $user->save();
 
         return redirect('admin/users')->with('success', 'Successfully Added a User');
+    }
+
+    public function update(Request $request){
+
+        //Manually check the database to see if there are any emails that it matches in the database other than this users email.
+
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required|min:6',
+            'email' => 'required|email',
+            'role' => 'required',
+            'isActive' => 'required',
+        ]);
+
+        $user = User::find($request->id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->isActive = $request->isActive;
+
+        $user->save();
+
+        return redirect('admin/user/' . $user->id)->with('success', 'Successfully Updated User');
     }
 }
 

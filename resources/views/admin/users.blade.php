@@ -7,11 +7,6 @@
     </div>
 @endif
 <div class="row">
-    <div class="col-sm-2">
-        @component('admin.layouts.menus.sidebar')
-
-        @endcomponent
-    </div>
     <div class="col-sm-5">
         <div class="card">
             <div class="card-body">
@@ -30,7 +25,7 @@
             <ul class="list-group list-group-flush">
                 @if($users)
                     @foreach($users as $user)
-            <li class="list-group-item">{{ $user->name }}</li>
+                        <li class="list-group-item"><a href="{{ route('admin.user', ['id' => $user->id]) }}">{{ $user->name }}</a></li>
                     @endforeach
 
                 @endif

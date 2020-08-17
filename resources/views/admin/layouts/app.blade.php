@@ -7,9 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
-
-    <title>{{ 'Admin Area || ' . Auth::user()->name }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -20,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="https://kit.fontawesome.com/7083cd3d84.js" crossorigin="anonymous"></script>
+    @stack('admin.layouts.styles')
+
 </head>
 <body>
     <div id="app">
@@ -62,6 +64,7 @@
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -73,8 +76,35 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-4 container-fluid">
+            <div id="sidebar" class="sidebar float-left">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="">
+                    <h5>{{ Auth::user()->name }}</h5>
+                </div>
+                <div class="items-container">
+                    <a href="{{ route('home') }}">
+                        <h6 class="menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</h6>
+                    </a>
+                    <a href="{{ route('admin.users') }}">
+                        <h6 class="menu-item"><i class="fas fa-users"></i> Users</h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="menu-item"><i class="far fa-handshake"></i> Clients</h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="menu-item"><i class="fas fa-table"></i> Estimates</h6>
+                    </a>
+                    <hr>
+                    <a href="#">
+                        <h6 class="menu-item"><i class="fas fa-cog"></i> Settings</h6>
+                    </a>
+                </div>
+            </div>
+            {{--End of sidebar--}}
+            <div class="content">
+                @yield('content')
+            </div>
         </main>
     </div>
     @stack('admin.layouts.scripts.scripts')
