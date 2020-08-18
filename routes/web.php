@@ -21,6 +21,8 @@ Auth::routes();
 Route::middleware('auth', 'isAdmin')-> namespace('admin')->group(function() {
     Route::get('admin/users', "UsersController@index")->name('admin.users');
     Route::get('admin/user/{id}', 'UsersController@getUser')->name('admin.user');
+    Route::get('admin/prospects', 'ProspectController@index')->name('admin.prospects');
+    Route::get('admin/prospect/{id}', 'ProspectController@show')->name('admin.prospect');
 
     Route::post('admin/users/store', 'UsersController@store')->name('admin.user.store');
 

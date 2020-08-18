@@ -89,6 +89,9 @@
                     <a href="{{ route('admin.users') }}">
                         <h6 class="menu-item"><i class="fas fa-users"></i> Users</h6>
                     </a>
+                    <a href="{{ route('admin.prospects') }}">
+                        <h6 class="menu-item"><i class="fas fa-user-tie"></i> Prospects</h6>
+                    </a>
                     <a href="#">
                         <h6 class="menu-item"><i class="far fa-handshake"></i> Clients</h6>
                     </a>
