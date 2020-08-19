@@ -34,7 +34,6 @@
     </div>
 </div>
 {{--/.row--}}
-
 @endsection
 
 @push('admin.layouts.scripts.scripts')
