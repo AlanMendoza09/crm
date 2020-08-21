@@ -5,7 +5,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    {{ $prospect->name }}
+                    {{ $prospect->name }} <span class="btn btn-sm btn-primary float-right">Edit</span></h6>
                 </div>
                 <div class="card-body">
                     <h6>Email: {{ $prospect->email }}</h6>
@@ -19,7 +19,7 @@
                     <h6>Prospect Message: {{ $prospect->prospect_message }}</h6>
                     <h6>Active Client: {{ $prospect->isClient  == true ? 'Yes' : 'No'}}</h6>
                     <h6>Claimable: {{ $prospect->isClaimable == true ? 'Yes' : 'No'}}</h6>
-                    <h6>Assigned To: {{$assigned_to}} <span class="btn btn-sm btn-primary">Assign</span></h6>
+                    <h6>Assigned To: {{$assigned_to}}
                 </div>
             </div>
         </div>

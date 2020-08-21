@@ -92,16 +92,11 @@
                     <a href="{{ route('admin.prospects') }}">
                         <h6 class="menu-item"><i class="fas fa-user-tie"></i> Prospects</h6>
                     </a>
+
                     <a href="#">
-                        <h6 class="menu-item"><i class="far fa-handshake"></i> Clients</h6>
-                    </a>
-                    <a href="#">
-                        <h6 class="menu-item"><i class="fas fa-table"></i> Estimates</h6>
+                        <h6 class="menu-item"><i class="fas fa-tasks"></i> Projects</h6>
                     </a>
                     <hr>
-                    <a href="#">
-                        <h6 class="menu-item"><i class="fas fa-cog"></i> Settings</h6>
-                    </a>
                 </div>
             </div>
             {{--End of sidebar--}}

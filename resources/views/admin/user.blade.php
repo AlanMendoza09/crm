@@ -56,8 +56,7 @@
                             <label for="role">Users Role:</label>
                             <select name="role" class="form-control">
                             <option value="{{ $user->role }}">{{ ucfirst($user->role) }}</option>
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
+                                <option value="admin" default>Admin</option>
                             </select>
                         </div>
                         <div class="form-group">

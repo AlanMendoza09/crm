@@ -21,8 +21,7 @@
     <div class="form-group">
         <label for="role">Select New User Role:</label>
         <select name="role" class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}" value="{{ old('role') }}">
-            <option value="user" default>User</option>
-            <option value="admin">admin</option>
+            <option value="user" default>admin</option>
         </select>
         @if($errors->has('role'))
             <div class="invalid-feedback">
@@ -40,7 +39,7 @@
         @endif
     </div>
     <div class="form-group">
-        <label for="confirm_password">Confirm New user Temporary Password</label>
+        <label for="confirm_password">Confirm New User Password</label>
         <input type="password" class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}" name="confirm_password">
         @if($errors->has('confirm_password'))
             <div class="invalid-feedback">
