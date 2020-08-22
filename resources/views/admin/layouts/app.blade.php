@@ -93,7 +93,7 @@
                         <h6 class="menu-item"><i class="fas fa-user-tie"></i> Prospects</h6>
                     </a>
 
-                    <a href="#">
+                    <a href="{{ route('admin.projects') }}">
                         <h6 class="menu-item"><i class="fas fa-tasks"></i> Projects</h6>
                     </a>
                     <hr>

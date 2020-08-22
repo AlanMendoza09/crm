@@ -16,20 +16,20 @@
 @endif
 
 <div class="row">
-    <button class="btn btn-success btn-sm" id="add-prospect-btn">Add a Prospect</button>
+    <button class="btn btn-success btn-sm" id="add-prospect-btn">Add a Project</button>
 </div>
 <div class="row">
 
-    @foreach ($prospects as $prospect)
+    @foreach ($projects as $project)
         <div class="col-md-3 offset-md-2">
-        <a href="{{ route('admin.prospect', ['id' => $prospect->id]) }}" style="text-decoration: none; color:black">
+        <a href="{{ route('admin.project', ['id' => $project->id]) }}" style="text-decoration: none; color:black">
                 <div class="card mt-3">
                     <div class="card-header">
-                        {{ $prospect->name }}
+                        {{ $project->name }}
                     </div>
                     <div class="card-body">
-                        <h6>{{ $prospect->phone }}</h6>
-                        <h6>{{ $prospect->email }}</h6>
+                        <h6>{{ $project->date_start }}</h6>
+                        <h6>{{ $project->project_state }}</h6>
                     </div>
                 </div>
             </a>
@@ -40,18 +40,18 @@
 <div class="row mt-5">
     <div class="col-md-6 offset-md-4">
         <div class="" style="margin: 0 auto;">
-            {{ $prospects->links() }}
+            {{ $projects->links() }}
         </div>
     </div>
 </div>
 {{--./row--}}
 
 {{--Modals--}}
-<div class="modal-style" id="add-prospect-modal">
+<div class="modal-style" id="add-project-modal">
     <div class="card">
-        <div class="card-header"><h5>Add New Prospect <span class="float-right close-modal"><b>X</b></span></h5></div>
+        <div class="card-header"><h5>Add New Project <span class="float-right close-modal"><b>X</b></span></h5></div>
         <div class="card-body">
-            <form action="{{ route('admin.prospect.store') }}" method="POST">
+            <form action="{{ route('admin.project.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -127,7 +127,7 @@
                     {{--./col-md-6--}}
                 </div>
                 {{--./row--}}
-                <button class="btn btn-primary btn-sm btn-block">Add New Prospect</button>
+                <button class="btn btn-primary btn-sm btn-block">Add New project</button>
             </form>
         </div>
     </div>

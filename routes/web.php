@@ -23,6 +23,8 @@ Route::middleware('auth', 'isAdmin')-> namespace('admin')->group(function() {
     Route::get('admin/user/{id}', 'UsersController@getUser')->name('admin.user');
     Route::get('admin/prospects', 'ProspectController@index')->name('admin.prospects');
     Route::get('admin/prospect/{id}', 'ProspectController@show')->name('admin.prospect');
+    Route::get('admin/projects', 'ProjectController@index')->name('admin.projects');
+    //Route::get('admin/project/{id}', 'ProjectController@show')->name('admin.project');
 
     Route::post('admin/users/store', 'UsersController@store')->name('admin.user.store');
     Route::post('admin/prospects/store', 'ProspectController@store')->name('admin.prospect.store');
