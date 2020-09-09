@@ -60,3 +60,43 @@
 .modal-style .close-modal:hover {
     color: red;
 }
+
+.modal-style-prospect {
+    width: 60%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-45%);
+    z-index: 10;
+    box-shadow: 0 0 50px darkgrey;
+    display: none;
+}
+
+.modal-style-prospect .close-modal-prospect {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-style-prospect .close-modal-prospect:hover {
+    color: red;
+}
+
+.modal-style-project {
+    width: 60%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-45%);
+    z-index: 10;
+    box-shadow: 0 0 50px darkgrey;
+    display: none;
+}
+
+.modal-style-project .close-modal-project {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-style-project .close-modal-project:hover {
+    color: red;
+}

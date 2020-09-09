@@ -83,12 +83,9 @@
                     <h5>{{ Auth::user()->name }}</h5>
                 </div>
                 <div class="items-container">
-                    <a href="{{ route('home') }}">
-                        <h6 class="menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</h6>
-                    </a>
                     <a href="{{ route('admin.users') }}">
                         <h6 class="menu-item"><i class="fas fa-users"></i> Users</h6>
-                    </a>
+                    </>
                     <a href="{{ route('admin.prospects') }}">
                         <h6 class="menu-item"><i class="fas fa-user-tie"></i> Prospects</h6>
                     </a>

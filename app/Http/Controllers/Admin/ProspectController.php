@@ -105,9 +105,39 @@ class ProspectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //dd($request);
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required|min:6',
+            'email' => 'required|unique:prospects',
+            'phone' => 'required|min:8',
+            'note' => 'required|min:20',
+        ]);
+
+        $prospect = Prospect::find($request->id);
+
+        $prospect->created_by = Auth::id();
+        $prospect->name = $request->name;
+        $prospect->email = $request->email;
+        $prospect->phone = $prospect->phone;
+        $prospect->phone_2 = $prospect->phone_2;
+        $prospect->address = $prospect->address;
+        $prospect->city = $prospect->city;
+        $prospect->province_state = $prospect->province_state;
+        $prospect->country = $prospect->country;
+        $prospect->note = $prospect->note;
+        if ($request->assigned != 0) {
+            $prospect->assigned = $request->assigned;
+            $prospect->date_assigned = now();
+            $prospect->isClient = 1;
+            $prospect->isClaimable = 0;
+        }
+
+        $prospect->save();
+
+        return redirect('admin/prospect/' . $prospect->id)->with('success', 'Successfully Updated User');
     }
 
     /**

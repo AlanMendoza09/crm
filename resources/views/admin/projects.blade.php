@@ -16,7 +16,7 @@
 @endif
 
 <div class="row">
-    <button class="btn btn-success btn-sm" id="add-prospect-btn">Add a Project</button>
+    <button class="btn btn-success btn-sm" id="add-project-btn">Add a Project</button>
 </div>
 <div class="row">
 
@@ -64,70 +64,66 @@
                             </div>
                         @endif
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" value="{{ old('email') }}">
-                            @if ($errors->has('email'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('email')}}
-                            </div>
-                        @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone:</label>
-                            <input type="text" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" name="phone" value="{{ old('phone') }}">
-                            @if ($errors->has('phone'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('phone')}}
-                            </div>
-                        @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="phone_2">Secondary Phone:</label>
-                            <input type="text" class="form-control" name="phone_2" value="{{ old('phone_2') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address:</label>
-                            <input type="text" class="form-control" name="address" value="{{ old('address') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City:</label>
-                            <input type="text" class="form-control" name="city" value="{{ old('city') }}">
-                        </div>
                     </div>
-                    {{--./col-md-6 FIRST COLUMN--}}
-                    <div class="col-md-6">
+                    <div class="row">
                         <div class="form-group">
-                            <label for="province_state">Province/State:</label>
-                            <input type="text" class="form-control" name="province_state" value="{{ old('province_state') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country:</label>
-                            <input type="text" class="form-control" name="country" value="{{ old('country') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="assigned">Assigned To:</label>
-                            <select name="assigned" id="" class="form-control" value="{{ old('assigned') }}">
-                                <option value="0">Unassigned</option>
-                                @foreach ($users as $user)
-                                <option value="{{$user->id}}" {{ old('assigned') == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="note">Note:</label>
-                            <textarea name="note" id="" cols="30" rows="9" class="form-control {{ $errors->has('note') ? 'is-invalid' : '' }}">{{ old('note') }}</textarea>
-                            @if ($errors->has('note'))
+                            <label for="date_start">Start Date:</label>
+                        <input type="text" class="form-control {{ $errors->has('date_start') ? 'is-invalid' : '' }}" name="date_start" value="{{ old('date_start') }}">
+                        @if ($errors->has('date_start'))
                             <div class="invalid-feedback">
-                                {{$errors->first('note')}}
+                                {{$errors->first('date_start')}}
                             </div>
                         @endif
                         </div>
                     </div>
-                    {{--./col-md-6--}}
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="estimated_cost">Estimated Cost:</label>
+                        <input type="text" class="form-control {{ $errors->has('estimated_cost') ? 'is-invalid' : '' }}" name="estimated_cost" value="{{ old('estimated_cost') }}">
+                        @if ($errors->has('estimated_cost'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('estimated_cost')}}
+                            </div>
+                        @endif
+                        </div>
+                    </div>
+                </div>
+                {{--./col-md-6 FIRST COLUMN--}}
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="project_state">Project State:</label>
+                        <input type="text" class="form-control {{ $errors->has('project_state') ? 'is-invalid' : '' }}" name="project_state" value="{{ old('project_state') }}">
+                        @if ($errors->has('project_state'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('project_state')}}
+                            </div>
+                        @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="final_price">Final Price:</label>
+                        <input type="text" class="form-control {{ $errors->has('final_price') ? 'is-invalid' : '' }}" name="final_price" value="{{ old('final_price') }}">
+                        @if ($errors->has('final_price'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('final_price')}}
+                            </div>
+                        @endif
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="assigned">Assigned To:</label>
+                        <select name="assigned" id="" class="form-control" value="{{ old('assigned') }}">
+                            <option value="0">Unassigned</option>
+                            @foreach ($users as $user)
+                            <option value="{{$user->id}}" {{ old('assigned') == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 {{--./row--}}
-                <button class="btn btn-primary btn-sm btn-block">Add New project</button>
+                <button class="btn btn-primary btn-sm btn-block">Add New Project</button>
             </form>
         </div>
     </div>
@@ -135,5 +131,5 @@
 @endsection
 
 @push('admin.layouts.scripts.scripts')
-<script src="{{ asset('js/admin/prospects.js') }}"></script>
+<script src="{{ asset('js/admin/projects.js') }}"></script>
 @endpush

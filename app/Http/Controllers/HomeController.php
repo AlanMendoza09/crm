@@ -28,7 +28,9 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->role === 'admin'){
-            return view('admin.index');
+            $users = User::all();
+
+            return view('admin.users', ['users' => $users]);
         }elseif(Auth::user()->role === 'user'){
             $assigned_leads = Prospect::where('assigned', Auth::id())->get();
 

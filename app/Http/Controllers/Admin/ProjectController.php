@@ -20,7 +20,8 @@ class ProjectController extends Controller
         $projects = Project::paginate(10);
         $users = User::all();
 
-        view('admin.projects', ['projects' => $projects, 'users' => $users]);
+
+        return view('admin.projects', ['projects' => $projects, 'users' => $users]);
     }
 
     /**
@@ -46,7 +47,7 @@ class ProjectController extends Controller
             'name' => 'required|min:6',
        ]);
 
-        $project = new project;
+        $project = new Project;
 
         $project->created_by = Auth::id();
         $project->name = $request->name;
@@ -95,10 +96,31 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //dd($request);
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required|min:6',
+       ]);
+
+       $project = Project::find($request->id);
+
+        $project->created_by = Auth::id();
+        $project->name = $request->name;
+        $project->date_start = $request->date_start;
+        $project->estimated_cost = $project->estimated_cost;
+        $project->project_state = $project->project_state;
+        $project->final_price = $project->final_price;
+        if ($request->assigned != 0) {
+            $project->assigned = $request->assigned;
+        }
+
+        $project->save();
+
+        return redirect('admin/project/' . $project->id)->with('success', 'Successfully Updated User');
     }
+
 
     /**
      * Remove the specified resource from storage.
