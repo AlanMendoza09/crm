@@ -64,19 +64,15 @@
                             </div>
                         @endif
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group">
                             <label for="date_start">Start Date:</label>
-                        <input type="text" class="form-control {{ $errors->has('date_start') ? 'is-invalid' : '' }}" name="date_start" value="{{ old('date_start') }}">
+                        <input type="text" id="date" class="form-control date {{ $errors->has('date_start') ? 'is-invalid' : '' }}" name="date_start" value="{{ old('date_start') }}">
                         @if ($errors->has('date_start'))
                             <div class="invalid-feedback">
                                 {{$errors->first('date_start')}}
                             </div>
                         @endif
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group">
                             <label for="estimated_cost">Estimated Cost:</label>
                         <input type="text" class="form-control {{ $errors->has('estimated_cost') ? 'is-invalid' : '' }}" name="estimated_cost" value="{{ old('estimated_cost') }}">
@@ -87,21 +83,19 @@
                         @endif
                         </div>
                     </div>
-                </div>
                 {{--./col-md-6 FIRST COLUMN--}}
                 <div class="col-md-6">
-                    <div class="row">
                         <div class="form-group">
                             <label for="project_state">Project State:</label>
-                        <input type="text" class="form-control {{ $errors->has('project_state') ? 'is-invalid' : '' }}" name="project_state" value="{{ old('project_state') }}">
-                        @if ($errors->has('project_state'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('project_state')}}
-                            </div>
-                        @endif
+                            <select name="project_state" id="" class="form-control" value="{{ old('project_state') }}">
+                                <option value="0">Discusión</option>
+                                <option value="1">Cotización</option>
+                                <option value="2">Contrato</option>
+                                <option value="3">Activo</option>
+                                <option value="4">Finalizado</option>
+                                <option value="5">Mantenimiento</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group">
                             <label for="final_price">Final Price:</label>
                         <input type="text" class="form-control {{ $errors->has('final_price') ? 'is-invalid' : '' }}" name="final_price" value="{{ old('final_price') }}">
@@ -111,7 +105,6 @@
                             </div>
                         @endif
                         </div>
-                    </div>
                     <div class="form-group">
                         <label for="assigned">Assigned To:</label>
                         <select name="assigned" id="" class="form-control" value="{{ old('assigned') }}">
@@ -122,6 +115,7 @@
                         </select>
                     </div>
                 </div>
+            </div>
                 {{--./row--}}
                 <button class="btn btn-primary btn-sm btn-block">Add New Project</button>
             </form>
@@ -132,4 +126,14 @@
 
 @push('admin.layouts.scripts.scripts')
 <script src="{{ asset('js/admin/projects.js') }}"></script>
+@endpush
+
+@push('layouts_body')
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(){
+        tail.DateTime(".date", { position: "bottom",
+    startOpen: true,
+    stayOpen: true });
+    });
+</script>
 @endpush

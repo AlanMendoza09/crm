@@ -42,8 +42,8 @@
     {{--Modals--}}
     <div  class="modal-style-prospect" id="edit-prospect-modal">
         <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <div class="card mt-5">
+            <div class="col-sm-12">
+                <div class="card">
                     <div class="card-header">
                         Edit the details for: {{ $prospect->name }} <span class="float-right close-modal-prospect" style="cursor: pointer; color:red"><b>X</b></span>
                     </div>
@@ -104,15 +104,6 @@
                                         <label for="country">Country:</label>
                                         <input type="text" class="form-control" name="country" value="{{ old('country') }}">
                                     </div>
-                                    {{--<div class="form-group">
-                                        <label for="assigned">Assigned To:</label>
-                                        <select name="assigned" id="" class="form-control" value="{{ old('assigned') }}">
-                                            <option value="0">Unassigned</option>
-                                            @foreach ($users as $user)
-                                            <option value="{{$user->id}}" {{ old('assigned') == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>--}}
                                     <div class="form-group">
                                         <label for="note">Note:</label>
                                         <textarea name="note" id="" cols="30" rows="9" class="form-control {{ $errors->has('note') ? 'is-invalid' : '' }}">{{ old('note') }}</textarea>

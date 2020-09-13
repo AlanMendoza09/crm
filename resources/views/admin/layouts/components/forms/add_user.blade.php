@@ -30,7 +30,7 @@
         @endif
     </div>
     <div class="form-group">
-        <label for="password">Enter New User Temporary Password</label>
+        <label for="password">Enter New User Password</label>
         <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password">
         @if($errors->has('password'))
             <div class="invalid-feedback">

@@ -21,4 +21,10 @@ document.body.onload = () => {
             }
         }
     }
+
+    /*tail.DateTime("#date", {
+        position: "bottom",
+        startOpen: true,
+        stayOpen: true
+    });*/
 }

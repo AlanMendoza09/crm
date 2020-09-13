@@ -19,9 +19,9 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->dateTime('date_start')->nullable();
             $table->text('estimated_cost')->nullable();
-            $table->text('project_state')->nullable();
+            $table->boolean('project_state')->default(0);
             $table->text('final_price')->nullable();
-            $table->integer('assigned')->default(1);
+            $table->string('assigned')->default('Discución');
             $table->timestamps();
         });
     }

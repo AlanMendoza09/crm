@@ -30,3 +30,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+require('admin-lte');
+require('tail.datetime');

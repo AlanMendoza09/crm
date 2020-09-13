@@ -54,13 +54,13 @@ class ProspectController extends Controller
         $prospect->created_by = Auth::id();
         $prospect->name = $request->name;
         $prospect->email = $request->email;
-        $prospect->phone = $prospect->phone;
-        $prospect->phone_2 = $prospect->phone_2;
-        $prospect->address = $prospect->address;
-        $prospect->city = $prospect->city;
-        $prospect->province_state = $prospect->province_state;
-        $prospect->country = $prospect->country;
-        $prospect->note = $prospect->note;
+        $prospect->phone = $request->phone;
+        $prospect->phone_2 = $request->phone_2;
+        $prospect->address = $request->address;
+        $prospect->city = $request->city;
+        $prospect->province_state = $request->province_state;
+        $prospect->country = $request->country;
+        $prospect->note = $request->note;
         if ($request->assigned != 0) {
             $prospect->assigned = $request->assigned;
             $prospect->date_assigned = now();
@@ -70,7 +70,7 @@ class ProspectController extends Controller
 
         $prospect->save();
 
-        return route('admin.prospects');
+        return redirect('admin/prospects/')->with('success', 'Successfully Created User');
     }
 
     /**
@@ -121,13 +121,13 @@ class ProspectController extends Controller
         $prospect->created_by = Auth::id();
         $prospect->name = $request->name;
         $prospect->email = $request->email;
-        $prospect->phone = $prospect->phone;
-        $prospect->phone_2 = $prospect->phone_2;
-        $prospect->address = $prospect->address;
-        $prospect->city = $prospect->city;
-        $prospect->province_state = $prospect->province_state;
-        $prospect->country = $prospect->country;
-        $prospect->note = $prospect->note;
+        $prospect->phone = $request->phone;
+        $prospect->phone_2 = $request->phone_2;
+        $prospect->address = $request->address;
+        $prospect->city = $request->city;
+        $prospect->province_state = $request->province_state;
+        $prospect->country = $request->country;
+        $prospect->note = $request->note;
         if ($request->assigned != 0) {
             $prospect->assigned = $request->assigned;
             $prospect->date_assigned = now();

@@ -7,6 +7,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Input\Input;
 
 class ProjectController extends Controller
 {
@@ -47,6 +48,9 @@ class ProjectController extends Controller
             'name' => 'required|min:6',
        ]);
 
+       /*Project::create([$request->project]);*/
+
+
         $project = new Project;
 
         $project->created_by = Auth::id();
@@ -61,7 +65,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return route('admin.projects');
+        return redirect()->route('admin.projects')->with('success', 'Successfully Created User');;
     }
 
     /**
@@ -109,9 +113,9 @@ class ProjectController extends Controller
         $project->created_by = Auth::id();
         $project->name = $request->name;
         $project->date_start = $request->date_start;
-        $project->estimated_cost = $project->estimated_cost;
-        $project->project_state = $project->project_state;
-        $project->final_price = $project->final_price;
+        $project->estimated_cost = $request->estimated_cost;
+        $project->project_state = $request->project_state;
+        $project->final_price = $request->final_price;
         if ($request->assigned != 0) {
             $project->assigned = $request->assigned;
         }
