@@ -12,7 +12,6 @@ $factory->define(Project::class, function (Faker $faker) {
         'name' => $faker->name,
         'date_start' => $faker->dateTime($max = 'now', $timezone=null),
         'estimated_cost' => $faker->text($maxNbChars = 25),
-        'project_state' => $faker->project_state,
         'final_price' => $faker->text($maxNbChars = 25),
         'assigned' => 1,
     ];
